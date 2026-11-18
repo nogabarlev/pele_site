@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>צוות פל"א | פיתוח למידה אינטראקטיבית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="navbar-container">
+    <a href="openPage.html" class="logo-container"><img src="media/logo.png" alt="לוגו צוות פל״א" class="logo"></a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#home" class="nav-link active">דף הבית</a>
+      <a href="#services" class="nav-link">השירותים</a>
+      <a href="#videos" class="nav-link">סרטונים</a>
+      <a href="#about" class="nav-link">מי אנחנו</a>
+      <a href="#contact" class="nav-link">צור קשר</a>
+    </nav>
+    <div class="nav-end">
+      <button type="button" id="adminLoginButton" class="admin-login-button">כניסת מנהלת</button>
+      <button type="button" class="burger" id="burger" aria-label="תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 class="hero-title">חדשנות בהכשרה.<span>השפעה בשטח.</span></h1>
+    <p class="hero-description">פל"א – פיתוח למידה אינטראקטיבית. מדור שמביא את הטכנולוגיה לקדמת הבמה ויוצר תוצרים אינטראקטיביים שהופכים לכלי עזר חשוב להכשרות ולחיילים בשטח.</p>
+    <div class="hero-cta">
+      <a href="#videos" class="btn btn-primary">צפו בעבודות שלנו</a>
+      <a href="#services" class="btn btn-ghost" id="continueButton">מה אנחנו יוצרות</a>
+    </div>
+  </div>
+  <div class="collage" id="collage">
+    <div class="ph ph-main" data-depth="14"><img src="media/pic2.jpeg" alt=""></div>
+    <div class="ph ph-side" data-depth="-20"><img src="media/pic3.jpg" alt=""></div>
+    <div class="ph ph-small" data-depth="26"><img src="media/pic1.jpeg" alt=""></div>
+    <div class="chip chip-a" data-depth="-10"><b>▶</b> סרטוני הדרכה</div>
+    <div class="chip chip-b" data-depth="12"><b>✦</b> לומדות אינטראקטיביות</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><strong data-count="5">0</strong><span>לומדות שפותחו</span></div>
+  <div class="stat"><strong data-count="20">0</strong><span>סרטוני הדרכה</span></div>
+  <div class="stat"><strong data-count="30">0</strong><span>תוצרים גרפיים</span></div>
+  <div class="stat"><strong data-count="1000">0</strong><span>חיילים שלמדו מהתוצרים</span></div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-head">
+    <h2>מה אנחנו יוצרות</h2>
+    <p>ארבעה תחומי הפקה תחת קורת גג אחת, מהרעיון הראשוני ועד תוצר מוכן לשטח.</p>
+  </div>
+  <div class="services-grid">
+    <article class="service-card reveal">
+      <div class="service-icon"><img src="media/categories/graphic.png" alt="גרפיקות"></div>
+      <h3>גרפיקות</h3>
+      <p>עיצוב גרפי לכל צורך: עלונים, שלטים, מצגות ואינפוגרפיקות בשפה חזותית אחידה.</p>
+      <button type="button" class="card-button" data-service="graphics" aria-label="גרפיקות"><span>‹</span></button>
+    </article>
+    <article class="service-card reveal">
+      <div class="service-icon"><img src="media/categories/pics.png" alt="תמונות"></div>
+      <h3>תמונות</h3>
+      <p>צילום טקסים ואירועים ברמת החטיבה וההכשרה.</p>
+      <button type="button" class="card-button" data-service="photos" aria-label="תמונות"><span>‹</span></button>
+    </article>
+    <article class="service-card reveal">
+      <div class="service-icon"><img src="media/categories/videos.png" alt="סרטונים"></div>
+      <h3>סרטונים</h3>
+      <p>הפקת סרטוני הדרכה מקצועיים: תסריט, צילום ועריכה שמעבירים מסר בצורה חווייתית.</p>
+      <button type="button" class="card-button" data-service="videos" aria-label="סרטונים"><span>‹</span></button>
+    </article>
+    <article class="service-card reveal">
+      <div class="service-icon"><img src="media/categories/lomdot.png" alt="לומדות"></div>
+      <h3>לומדות</h3>
+      <p>תוצרי למידה אינטראקטיביים שהופכים הכשרה לחוויה יעילה ומעשית.</p>
+      <button type="button" class="card-button" data-service="learning" aria-label="לומדות"><span>‹</span></button>
+    </article>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process">
+  <div class="section-head">
+    <h2>איך עובדים איתנו</h2>
+    <p>תהליך קצר וברור, כדי שהתוצר יגיע בדיוק לצורך שלכם.</p>
+  </div>
+  <ol class="steps">
+    <li class="reveal"><i>1</i><h3>פנייה</h3><p>מספרים לנו מה צריך ולמי התוצר מיועד.</p></li>
+    <li class="reveal"><i>2</i><h3>אפיון</h3><p>מגדירים מטרות, קהל יעד ופורמט מתאים.</p></li>
+    <li class="reveal"><i>3</i><h3>הפקה</h3><p>מעצבות, מצלמות, עורכות ומפתחות.</p></li>
+    <li class="reveal"><i>4</i><h3>ריג'קטים ותיקונים</h3><p>מקבלים את המשוב שלכם ומתקנים עד שהתוצר מדויק.</p></li>
+    <li class="reveal"><i>5</i><h3>הפצה</h3><p>התוצר המוכן מופץ ליחידות ולחיילים בשטח.</p></li>
+  </ol>
+</section>
+
+<!-- VIDEOS -->
+<section class="section videos" id="videos">
+  <div class="section-head">
+    <h2>מהמדור שלנו</h2>
+    <p>תוצרי ההדרכה של הצוות, מחולקים לפי הגדודים שאליהם הם רלוונטיים.</p>
+  </div>
+  <div class="vtabs" id="vTabs"></div>
+  <div class="vgrid">
+    <div class="vmain">
+      <div class="player" id="player"></div>
+      <h3 id="vTitle"></h3>
+      <p id="vDesc"></p>
+    </div>
+    <div class="vlist" id="vList"></div>
+  </div>
+</section>
+
+<!-- ABOUT / TEAM -->
+<section class="section" id="about">
+  <div class="section-head">
+    <h2>מי אנחנו</h2>
+    <p>צוות של יוצרות ומפתחות שמחבר בין הכשרה, עיצוב וטכנולוגיה.</p>
+  </div>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="section-head">
+    <h2>צור קשר</h2>
+    <p>יש לכם רעיון לתוצר או צורך הדרכתי? נשמח לשמוע.</p>
+  </div>
+  <div class="contact-grid">
+    <a class="contact-card reveal" href="tel:0506789012"><b>☎</b><span>טלפון – מעיין</span><strong>050-349-8800</strong></a>
+    <a class="contact-card reveal" href="gappashivta@gmail.com"><b>✉</b><span>דואר אלקטרוני</span><strong>gappashivta@gmail.com</strong></a>
+    <a class="contact-card reveal" href="https://wa.me/972506789012" target="_blank" rel="noopener"><b>✆</b><span>וואטסאפ – מעיין</span><strong>שלחו הודעה</strong></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">צוות פל"א · פיתוח למידה אינטראקטיבית</footer>
+
+<!-- LOMDOT MODAL -->
+<div id="lomdotModal" class="lomdot-modal" hidden role="dialog" aria-modal="true" aria-labelledby="lomdotTitle">
+  <div class="lomdot-inner">
+    <button type="button" class="lomdot-close" id="lomdotClose" aria-label="סגירה">×</button>
+    <div class="lomdot-head">
+      <h2 id="lomdotTitle">הלומדות שלנו</h2>
+      <p>שתי לומדות אינטראקטיביות שפיתחנו. לחצו על הטלפון כדי לנסות אותה כאן, או פתחו במסך מלא.</p>
+    </div>
+    <div class="lomdot-grid">
+      <article class="lomdot-card">
+        <div class="phone" data-live>
+          <div class="phone-screen"><iframe data-src="https://nogabarlev.github.io/navigation_app/" title="לומדת ניווטים" loading="lazy"></iframe></div>
+          <span class="phone-hint">לחצו לניסיון</span>
+        </div>
+        <h3>לומדת ניווטים</h3>
+        <p>קריאת מפה, זיהוי קרקע ומדידת כיוון, בצורה מעשית וצעד אחר צעד.</p>
+        <small>פותחה על ידי סמל נוגה בר-לב</small>
+        <a class="btn btn-primary" href="https://nogabarlev.github.io/navigation_app/" target="_blank" rel="noopener">פתיחה במסך מלא</a>
+      </article>
+      <article class="lomdot-card">
+        <div class="phone" data-live>
+          <div class="phone-screen"><iframe data-src="https://nogabarlev.github.io/yesodot-menatzchim/" title="יסודות מנצחים" loading="lazy"></iframe></div>
+          <span class="phone-hint">לחצו לניסיון</span>
+        </div>
+        <h3>יסודות מנצחים</h3>
+        <p>אפליקציית תל״ב בכף היד של פיקוד ההכשרות והאימונים, חטיבת האש שבטה.</p>
+        <small>פותחה על ידי סמל נוגה בר-לב</small>
+        <a class="btn btn-primary" href="https://nogabarlev.github.io/yesodot-menatzchim/" target="_blank" rel="noopener">פתיחה במסך מלא</a>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="login-modal hidden">
+  <div class="login-box">
+    <button type="button" id="closeLoginButton" class="close-login" aria-label="סגירה">×</button>
+    <h2>כניסת מנהלת</h2>
+    <p>התחברי כדי לנהל את התכנים באתר</p>
+    <input type="email" id="loginEmail" placeholder="אימייל" autocomplete="username">
+    <input type="password" id="loginPassword" placeholder="סיסמה" autocomplete="current-password">
+    <button type="button" id="loginButton">התחברות</button>
+    <p id="loginMessage"></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="code.js"></script>
+</body>
+</html>
