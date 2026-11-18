@@ -1,0 +1,35 @@
+/* ממשק ניהול */
+.admin-panel{overflow-y:auto}
+.admin-panel-content{width:min(860px,95%);max-height:calc(100vh - 48px);overflow-y:auto}
+.admin-head-btns{display:flex;gap:8px}
+.admin-tabs{display:flex;gap:8px;margin-bottom:20px}
+.admin-tabs button{border:1px solid var(--line);background:#fff;padding:9px 22px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px;transition:.25s}
+.admin-tabs button:hover{border-color:var(--rose)}
+.admin-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.adm-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.adm-empty{color:var(--mut);font-size:14px;padding:10px 4px}
+.adm-row{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fff}
+.adm-row img{width:76px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:var(--mist);flex-shrink:0}
+.adm-info{flex:1;min-width:0}
+.adm-info strong{display:block;font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.adm-info small{display:block;color:var(--mut);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.adm-btns{display:flex;gap:8px;flex-shrink:0}
+.adm-btns button{border:1px solid var(--line);background:#fff;padding:7px 16px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer;transition:.25s}
+.adm-btns button:hover{border-color:var(--rose);color:var(--rose)}
+.adm-btns .danger:hover{background:#c0392b;border-color:#c0392b;color:#fff}
+.adm-btns .primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.adm-btns .primary:hover{background:var(--rose);border-color:var(--rose);color:#fff}
+.adm-btns button:disabled{opacity:.6;cursor:wait}
+.adm-form{background:var(--mist);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.adm-form h3{font-size:18px}
+.adm-form input[type=text],.adm-form input[type=url]{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;direction:rtl;background:#fff;outline:none;transition:.25s}
+.adm-form input:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(201,80,124,.12)}
+.adm-form label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mut)}
+.adm-form input[type=file]{font:inherit;font-size:13px}
+.admin-msg{min-height:20px;margin-top:14px;font-size:14px;color:var(--olive)}
+.admin-msg.err{color:#c0392b}
+@media(max-width:650px){
+  .adm-row{flex-wrap:wrap}
+  .adm-btns{width:100%}
+  .adm-btns button{flex:1}
+}
