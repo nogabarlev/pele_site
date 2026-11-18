@@ -18,22 +18,24 @@ const VIDEOS = [
 ];
 
 // קבצי הגרפיקות: שימי את ה-PDF בתיקייה media/files ושני כאן את שם הקובץ והכותרת
+// thumb: תמונה לכרטיס, למשל "media/files/file1.jpg". אם משאירים ריק מוצג העיצוב הוורוד עם האייקון
 const GRAPHICS = [
-    { file: "media/files/מדבקה.pdf", title: "מדבקה", desc: "מדבקות ליום מפקדים" },
-    { file: "media/files/עלון.pdf", title: "עלון למפקד", desc: "ברכה ממחט האש שבטה לסגלים" },
-    { file: "media/files/פולדר.pdf", title: "פולדר", desc: "עיצוב כריכה למחברות וספרים" },
-    { file: "media/files/פורמט תעודת הוקרה.pdf", title: "פורמט תעודת הוקרה", desc: "עיצוב תעודת הוקרה לחניך מצטיין, באפשרותכם להוסיף את שם החניך בהתאם" },
-    { file: "media/files/שבטאון אוקטובר 2026.pdf", title: "שבטאון אוקטובר 2026", desc: "סיכום חודש אוקטובר- אירועים, טקסים והכשרות" },
-    { file: "media/files/שבטאון יולי 26.pdf", title: "שבטאון יולי 2026", desc: "סיכומי חודש יולי- אירועים, טקסים והכשרות" }
+    { file: "media/files/מדבקה.pdf", thumb: "media/graphics_background.png", title: "מדבקה", desc: "מדבקות ליום מפקדים" },
+    { file: "media/files/עלון.pdf", thumb: "media/graphics_background.png", title: "עלון למפקד", desc: "ברכה ממחט האש שבטה לסגלים" },
+    { file: "media/files/פולדר.pdf", thumb: "media/graphics_background.png", title: "פולדר", desc: "עיצוב כריכה למחברות וספרים" },
+    { file: "media/files/פורמט תעודת הוקרה.pdf", thumb: "media/graphics_background.png", title: "פורמט תעודת הוקרה", desc: "עיצוב תעודת הוקרה לחניך מצטיין, באפשרותכם להוסיף את שם החניך בהתאם" },
+    { file: "media/files/שבטאון אוקטובר 2026.pdf", thumb: "media/graphics_background.png", title: "שבטאון אוקטובר 2026", desc: "סיכום חודש אוקטובר- אירועים, טקסים והכשרות" },
+    { file: "media/files/שבטאון יולי 26.pdf", thumb: "media/graphics_background.png", title: "שבטאון יולי 2026", desc: "סיכומי חודש יולי- אירועים, טקסים והכשרות" }
 ];
 
 // photo: אפשר להוסיף נתיב לתמונה, למשל "media/team/aya.jpg". בלי תמונה יוצג האות הראשונה
 const TEAM = [
-    { name: "נוגה בר-לב", role: "מפתחת לומדה", phone: "053-530-6899", photo: "" },
+    { name: "נוגה בר-לב", role: "מפתחת לומדות", phone: "053-530-6899", photo: "" },
     { name: "איה ריבן", role: "גרפיקאית", phone: "050-642-4363", photo: "" },
     { name: "רעות עמאר", role: "צלמת", phone: "052-965-6356", photo: "" },
     { name: "דנה עוזרי", role: "עורכת וידאו", phone: "058-536-3613", photo: "" }
 ];
+
 /* =========================================
    NAVBAR + MOBILE MENU
 ========================================= */
@@ -194,7 +196,7 @@ const ICON_DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 
 $("gfxGrid").innerHTML = GRAPHICS.map((g, i) => `
     <article class="gfx-card" style="--i:${i}">
-        <div class="gfx-thumb"><img src="media/categories/graphic.png" alt=""><span>PDF</span></div>
+        <div class="gfx-thumb${g.thumb ? " has-img" : ""}"><img src="${g.thumb || "media/categories/graphic.png"}" alt="${g.title}"><span>PDF</span></div>
         <h3>${g.title}</h3>
         <p>${g.desc}</p>
         <div class="gfx-actions">
