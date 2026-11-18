@@ -17,6 +17,16 @@ const VIDEOS = [
     { id: "d_YpTFLz4Pk", title: "שיעור מרגמות", group: "ענף הדרכה" }
 ];
 
+// קבצי הגרפיקות: שימי את ה-PDF בתיקייה media/files ושני כאן את שם הקובץ והכותרת
+const GRAPHICS = [
+    { file: "media/files/מדבקה.pdf", title: "מדבקה", desc: "מדבקות ליום מפקדים" },
+    { file: "media/files/עלון.pdf", title: "עלון למפקד", desc: "ברכה ממחט האש שבטה לסגלים" },
+    { file: "media/files/פולדר.pdf", title: "פולדר", desc: "עיצוב כריכה למחברות וספרים" },
+    { file: "media/files/פורמט תעודת הוקרה.pdf", title: "פורמט תעודת הוקרה", desc: "עיצוב תעודת הוקרה לחניך מצטיין, באפשרותכם להוסיף את שם החניך בהתאם" },
+    { file: "media/files/שבטאון אוקטובר 2026.pdf", title: "שבטאון אוקטובר 2026", desc: "סיכום חודש אוקטובר- אירועים, טקסים והכשרות" },
+    { file: "media/files/שבטאון יולי 26.pdf", title: "שבטאון יולי 2026", desc: "סיכומי חודש יולי- אירועים, טקסים והכשרות" }
+];
+
 // photo: אפשר להוסיף נתיב לתמונה, למשל "media/team/aya.jpg". בלי תמונה יוצג האות הראשונה
 const TEAM = [
     { name: "נוגה בר-לב", role: "מפתחת לומדות", phone: "053-530-6899", photo: "" },
@@ -24,7 +34,6 @@ const TEAM = [
     { name: "רעות עמאר", role: "צלמת", phone: "052-965-6356", photo: "" },
     { name: "דנה עוזרי", role: "עורכת וידאו", phone: "058-536-3613", photo: "" }
 ];
-
 /* =========================================
    NAVBAR + MOBILE MENU
 ========================================= */
@@ -168,6 +177,62 @@ $("teamGrid").innerHTML = TEAM.map((m) => `
         </div>
     </article>`).join("");
 document.querySelectorAll(".member").forEach((el) => io.observe(el));
+
+/* =========================================
+   GRAPHICS GALLERY
+========================================= */
+
+const gfxModal = $("gfxModal");
+const gfxViewer = $("gfxViewer");
+const gfxFrame = $("gfxFrame");
+const gfxCardEl = document.querySelector('[data-service="graphics"]').closest(".service-card");
+gfxCardEl.classList.add("clickable");
+let gfxIndex = 0;
+
+const ICON_VIEW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const ICON_DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>';
+
+$("gfxGrid").innerHTML = GRAPHICS.map((g, i) => `
+    <article class="gfx-card" style="--i:${i}">
+        <div class="gfx-thumb"><img src="media/categories/graphic.png" alt=""><span>PDF</span></div>
+        <h3>${g.title}</h3>
+        <p>${g.desc}</p>
+        <div class="gfx-actions">
+            <button type="button" data-view="${i}">${ICON_VIEW}הצגה</button>
+            <a href="${g.file}" download aria-label="הורדת ${g.title}">${ICON_DL}הורדה</a>
+        </div>
+    </article>`).join("");
+
+// במסכים קטנים ובאייפון הדפדפן מציג רק עמוד ראשון בתוך מסגרת, אז פותחים בלשונית חדשה
+const isSmallScreen = () => window.matchMedia("(max-width: 800px)").matches || /iPhone|iPad|iPod/.test(navigator.userAgent);
+
+const viewGfx = (i) => {
+    gfxIndex = (i + GRAPHICS.length) % GRAPHICS.length;
+    const g = GRAPHICS[gfxIndex];
+    if (isSmallScreen()) { window.open(g.file, "_blank", "noopener"); return; }
+    $("gfxViewTitle").textContent = g.title;
+    $("gfxDownload").href = g.file;
+    gfxFrame.src = g.file + "#view=FitH";
+    gfxViewer.hidden = false;
+};
+const closeViewer = () => { gfxViewer.hidden = true; gfxFrame.src = "about:blank"; };
+const openGfx = () => { gfxModal.hidden = false; document.body.style.overflow = "hidden"; gfxModal.scrollTop = 0; };
+const closeGfx = () => { closeViewer(); gfxModal.hidden = true; document.body.style.overflow = ""; };
+
+gfxCardEl.addEventListener("click", openGfx);
+$("gfxClose").addEventListener("click", closeGfx);
+$("gfxBack").addEventListener("click", closeViewer);
+$("gfxPrev").addEventListener("click", () => viewGfx(gfxIndex - 1));
+$("gfxNext").addEventListener("click", () => viewGfx(gfxIndex + 1));
+$("gfxGrid").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-view]");
+    if (b) viewGfx(+b.dataset.view);
+});
+gfxModal.addEventListener("click", (e) => { if (e.target === gfxModal || e.target.classList.contains("gfx-inner")) closeGfx(); });
+document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape" || gfxModal.hidden) return;
+    if (!gfxViewer.hidden) closeViewer(); else closeGfx();
+});
 
 /* =========================================
    LOMDOT SHOWCASE
