@@ -19,10 +19,10 @@ const VIDEOS = [
 
 // photo: אפשר להוסיף נתיב לתמונה, למשל "media/team/aya.jpg". בלי תמונה יוצג האות הראשונה
 const TEAM = [
-    { name: "נוגה בר-לב", role: "מפתחת לומדה", phone: "053-530-6899", photo: "" },
-    { name: "איה ריבן", role: "גרפיקאית", phone: "050-642-4363", photo: "" },
-    { name: "רעות עמאר", role: "צלמת", phone: "052-965-6356", photo: "" },
-    { name: "דנה עוזרי", role: "עורכת וידאו", phone: "058-536-3613", photo: "" }
+    { name: "נוגה בר-לב", role: "מפתחת לומדות", phone: "050-5678901", photo: "" },
+    { name: "איה ריבן", role: "גרפיקאית", phone: "050-1234567", photo: "" },
+    { name: "רעות עמאר", role: "צלמת", phone: "050-2345678", photo: "" },
+    { name: "דנה עוזרי", role: "עורכת וידאו", phone: "050-4567890", photo: "" }
 ];
 
 /* =========================================
@@ -121,7 +121,7 @@ const setVideo = (i) => {
     currentVideo = i;
     const v = VIDEOS[i];
     player.style.backgroundImage = `url(${thumb(v.id)})`;
-    player.innerHTML = `<button type="button" class="play" aria-label="נגן: ${v.title}"><span>▶</span></button>`;
+    player.innerHTML = `<button type="button" class="play" aria-label="נגן: ${v.title}"><span><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M7 5v14l11-7z" fill="#fff"/></svg></span></button>`;
     player.querySelector(".play").addEventListener("click", () => {
         player.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0" title="${v.title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
     });
