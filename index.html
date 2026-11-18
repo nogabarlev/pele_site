@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="/pele_site/media/logo.png">
-  <link rel="icon" type="image/png" href="/pele_site/media/logo.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>צוות פל"א | פיתוח למידה אינטראקטיבית</title>
@@ -150,6 +148,30 @@
 </main>
 
 <footer class="footer">צוות פל"א · פיתוח למידה אינטראקטיבית</footer>
+
+<!-- GRAPHICS MODAL -->
+<div id="gfxModal" class="gfx-modal" hidden role="dialog" aria-modal="true" aria-labelledby="gfxTitle">
+  <div class="gfx-inner">
+    <button type="button" class="gfx-close" id="gfxClose" aria-label="סגירה">×</button>
+    <div class="gfx-head">
+      <h2 id="gfxTitle">הגרפיקות שלנו</h2>
+      <p>תוצרים גרפיים שעיצבנו. אפשר לצפות בכל קובץ כאן, או להוריד אותו.</p>
+    </div>
+    <div class="gfx-grid" id="gfxGrid"></div>
+  </div>
+  <div class="gfx-viewer" id="gfxViewer" hidden>
+    <div class="gfx-bar">
+      <button type="button" class="gfx-back" id="gfxBack">חזרה לגלריה</button>
+      <strong id="gfxViewTitle"></strong>
+      <div class="gfx-bar-actions">
+        <button type="button" id="gfxPrev" aria-label="הקודם">›</button>
+        <button type="button" id="gfxNext" aria-label="הבא">‹</button>
+        <a id="gfxDownload" class="gfx-dl" href="#" download>הורדה</a>
+      </div>
+    </div>
+    <iframe id="gfxFrame" title="תצוגת קובץ"></iframe>
+  </div>
+</div>
 
 <!-- LOMDOT MODAL -->
 <div id="lomdotModal" class="lomdot-modal" hidden role="dialog" aria-modal="true" aria-labelledby="lomdotTitle">
